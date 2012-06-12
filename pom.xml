@@ -99,10 +99,6 @@
 					<artifactId>buildnumber-maven-plugin</artifactId>
 					<version>1.0</version>
 				</plugin>
-				<plugin>
-					<artifactId>maven-gpg-plugin</artifactId>
-					<version>1.4</version>
-				</plugin>
 			</plugins>
 		</pluginManagement>
 
@@ -182,6 +178,22 @@
 					</descriptorRefs>
 				</configuration>
 			</plugin>
+		</plugins>
+	</build>
+	
+	<profiles>
+	<profile>
+      <id>taimos_release</id>
+      <build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-gpg-plugin</artifactId>
+					<version>1.4</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
@@ -197,4 +209,6 @@
 			</plugin>
 		</plugins>
 	</build>
+    </profile>
+	</profiles>
 </project>
